@@ -1,4 +1,4 @@
-import { Pagination, Navigation, EffectCoverflow, Virtual } from "swiper"
+import { Pagination, Navigation, EffectCoverflow } from "swiper"
 import { Swiper, SwiperSlide } from "swiper/react"
 import "swiper/css"
 import "swiper/css/pagination"
@@ -86,6 +86,7 @@ const Portfolio = () => {
               src={image}
               alt={title}
               className="rounded-2xl mx-auto aspect-auto w-full"
+              loading="lazy"
             />
             <h3 className="text-center text-2xl font-bold p-4">{title}</h3>
             <div className="flex gap-2 justify-center">
