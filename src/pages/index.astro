@@ -1,15 +1,161 @@
 ---
+import CTA from "../components/CTA"
+import About from "../components/About"
+import StackBlitz from "../components/StackBlitz.astro"
+import Footer from "../components/Footer"
+import Contact from "../components/Contact"
+import Portfolio from "../components/Portfolio"
+import Experience from "../components/Experience"
+import Nav from "../components/Nav"
+import Header from "../components/Header"
+import SillyCode from "../components/SillyCode.astro"
+import SunSVG from "../components/Sun.astro"
 ---
 
+<style>
+  body {
+    transition: background-color 2s ease;
+    scroll-behavior: smooth;
+  }
+
+  #themeToggle {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: #a3c4bc;
+    color: #be5a83;
+    cursor: pointer;
+    z-index: 100;
+    transition: all 0.5s ease;
+    transform: scale(1);
+    box-shadow: 0px 0px 10px 5px rgba(190, 90, 131, 0.5);
+    outline: #a3c4bc dotted 1px;
+  }
+
+  #themeToggle:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 5px 10px 5px rgba(190, 90, 131, 0.8);
+    outline: #a3c4bc dashed 1px;
+  }
+</style>
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body
+    style="background-image: url(/bg.png)"
+    bg="quinary dark:redDark"
+    font="serif"
+  >
+    <main flex flex-col items-center justify-center gap-2>
+      <Header>
+        <CTA client:load />
+        <SillyCode />
+      </Header>
+      <About client:visible />
+      <Experience />
+      <Portfolio client:visible />
+      <Contact client:visible />
+      <Footer />
+      <button id="themeToggle">
+        <SunSVG />
+      </button>
+    </main>
+    <Nav client:load />
+  </body>
 </html>
+
+<script>
+  const themeToggle = document.querySelector(
+    "#themeToggle"
+  ) as HTMLButtonElement
+
+  if (!themeToggle) {
+    throw new Error("Theme toggle not found")
+  }
+
+  const sunSVG = themeToggle.innerHTML
+
+  const moonSVG = `<svg fill="none" stroke="currentColor" width="36px" height="36px" viewBox="0 0 26 26" xmlns="http://www.w3.org/2000/svg"><path d="M19.878,16.941A9.528,9.528,0,0,1,11.569,22,9.811,9.811,0,0,1,2,11.984,9.854,9.854,0,0,1,10.923,2a1.034,1.034,0,0,1,.912.458,1,1,0,0,1,.036,1.019,8.278,8.278,0,0,0-.72,1.785,1,1,0,1,1-1.929-.528c.037-.135.077-.269.119-.4A7.989,7.989,0,0,0,4,11.984,7.811,7.811,0,0,0,11.569,20a7.4,7.4,0,0,0,5.568-2.6,9.352,9.352,0,0,1-5.335-2.7,1,1,0,0,1,1.416-1.412,7.23,7.23,0,0,0,5.622,2.177,1.053,1.053,0,0,1,.957.453A1,1,0,0,1,19.878,16.941ZM20.5,13v-.5H21a1,1,0,0,0,0-2h-.5V10a1,1,0,0,0-2,0v.5H18a1,1,0,0,0,0,2h.5V13a1,1,0,0,0,2,0Zm-4-11a1,1,0,0,0-1,1v.5H15a1,1,0,0,0,0,2h.5V6a1,1,0,0,0,2,0V5.5H18a1,1,0,0,0,0-2h-.5V3A1,1,0,0,0,16.5,2Zm-6,10a1,1,0,0,0,1-1v-.5H12a1,1,0,0,0,0-2h-.5V8a1,1,0,0,0-2,0v.5H9a1,1,0,0,0,0,2h.5V11A1,1,0,0,0,10.5,12Z"/></svg>
+`
+  if (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  ) {
+    document.documentElement.classList.add("dark")
+    themeToggle.innerHTML = moonSVG
+    themeToggle.style.backgroundColor = "#be5a83"
+    themeToggle.style.color = "#a3c4bc"
+  } else {
+    document.documentElement.classList.remove("dark")
+    themeToggle.innerHTML = sunSVG
+    themeToggle.style.backgroundColor = "#a3c4bc"
+    themeToggle.style.color = "#be5a83"
+  }
+
+  themeToggle.addEventListener("click", () => {
+    if (localStorage.theme === "dark") {
+      localStorage.theme = "light"
+      themeToggle.innerHTML = sunSVG
+      themeToggle.style.backgroundColor = "#a3c4bc"
+      themeToggle.style.color = "#be5a83"
+      document.documentElement.classList.remove("dark")
+    } else {
+      localStorage.theme = "dark"
+      themeToggle.innerHTML = moonSVG
+      themeToggle.style.backgroundColor = "#be5a83"
+      themeToggle.style.color = "#a3c4bc"
+      document.documentElement.classList.add("dark")
+    }
+  })
+
+  const intersectionObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const matchingNavElement = findMatchingNavElement(entry.target)
+
+        if (entry.isIntersecting) {
+          entry.target.classList.remove("sleeping")
+          entry.target.classList.add("animate-fade-in-down")
+          matchingNavElement?.classList.add("active")
+        } else {
+          matchingNavElement?.classList.remove("active")
+        }
+      })
+    },
+    { threshold: 0.2 }
+  )
+
+  const elements = document.querySelectorAll(".observed")
+
+  elements.forEach((element) => {
+    intersectionObserver.observe(element)
+  })
+
+  function findMatchingNavElement(element: Element) {
+    const navElements = document.querySelectorAll("nav li")
+
+    for (let i = 0; i < navElements.length; i++) {
+      const navElement = navElements[i]
+      if (!navElement) {
+        continue
+      }
+      const href = navElement?.querySelector("a")?.getAttribute("href")
+      const id = href?.replace("#", "")
+
+      if (id === element.id) {
+        return navElement
+      }
+    }
+  }
+</script>

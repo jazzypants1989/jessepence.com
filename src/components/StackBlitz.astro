@@ -1,0 +1,33 @@
+---
+import IFrame from "./IFrame.astro"
+
+const { repo, chapter, demo, file, id } = Astro.props as {
+  repo: string
+  chapter: string
+  demo: string | undefined
+  file: string | undefined
+  id: string | undefined
+}
+
+function append(demo = "", file = "") {
+  const extra = "ctl=1&embed=1"
+  if (demo && file) {
+    return `/${demo}/?file=${file}&${extra}`
+  } else if (!demo && file) {
+    return `/?file=${file}&${extra}`
+  } else if (demo && !file) {
+    return `/${demo}?${extra}`
+  } else {
+    return `?${extra}`
+  }
+}
+---
+
+<h3>{demo ? demo : chapter}</h3>
+<IFrame
+  id={id}
+  src={`https://stackblitz.com/github/jazzypants1989/${repo}/tree/main/${chapter}${append(
+    demo,
+    file
+  )}`}
+/>
