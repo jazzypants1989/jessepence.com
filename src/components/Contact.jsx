@@ -81,14 +81,14 @@ const Contact = () => {
         <input
           type="text"
           name="name"
-          className="rounded-md shadow-md p-2"
-          placeholder="Your Full Name"
+          className="rounded-md shadow-md p-2 min-w-1/3"
+          placeholder="Your Name"
           required
         />
         <input
           type="email"
           name="email"
-          className="rounded-md shadow-md p-2"
+          className="rounded-md shadow-md p-2 min-w-1/2"
           placeholder="E-mail Address"
           required
         />
@@ -96,7 +96,7 @@ const Contact = () => {
           type="text"
           name="subject"
           placeholder="Subject"
-          className="rounded-md shadow-md p-2"
+          className="rounded-md shadow-md p-2 min-w-3/4"
           required
         />
         <textarea

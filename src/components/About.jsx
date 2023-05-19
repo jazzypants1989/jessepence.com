@@ -32,10 +32,10 @@ const About = () => {
             <div className="i-mdi-account-multiple" />
             <h5>Dedicated</h5>
             <small>
-              I've only been coding for a little over a year now, but it has
-              quickly become a bit of an obsession. I'm always looking for
-              something new to learn. Programming is a puzzle, and I love
-              solving puzzles! One look at my{" "}
+              I've only been coding for a little over a year now, but I have
+              absolutely fallen in love with it. I'm always looking for new
+              challenges or something new to learn. Programming is a puzzle, and
+              I love solving puzzles! One look at my{" "}
               <a
                 href="https://github.com/jazzypants1989/"
                 className="text-secondary hover:text-quaternary transition-all duration-500 ease-in-out"
@@ -79,8 +79,12 @@ const About = () => {
           <p className="md:text-lg p-2 m-2">
             I spent the first 15 years of my career in the service industry. I
             worked my way up from dishwasher to bartender to manager, and I
-            learned a lot about people along the way. The biggest lesson was
-            that everyone just wants to be heard.
+            learned a lot along the way. Valuable lessons such as the importance
+            of humility, the value of hard work, and the courage to ask for help
+            when you need it-- all of these things have helped me become the
+            person I am today. I'm a firm believer that you can learn something
+            from everyone you meet, and I try to keep an open mind when it comes
+            to new ideas.
           </p>
 
           <p className="md:text-lg p-2 m-2">

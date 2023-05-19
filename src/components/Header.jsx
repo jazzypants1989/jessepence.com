@@ -27,13 +27,19 @@ const Header = ({ children }) => {
         transition="all duration-2000 ease-in-out"
         text="2xl redDark dark:quinary"
       >
-        I'm a web developer
+        I'm a web developer.
       </h5>
-      <img
-        className="rounded-full shadow-2xl w-1/2 md:w-1/4 mx-auto"
-        src={ME}
-        alt="Look at this handsome guy!"
-      />
+      <div
+        position="relative"
+        z="10"
+        className="bg-gradient-to-r from-redDark to-primary rounded-full shadow-2xl mx-auto w-1/2 md:w-1/4"
+      >
+        <img
+          className="rounded-full mx-auto relative z-10"
+          src={ME}
+          alt="Look at this handsome guy!"
+        />
+      </div>
       <HeaderSocials />
       {children}
     </header>

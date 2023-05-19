@@ -36,7 +36,9 @@ const Experience = () => {
             >
               complete CMS for a small thrift store
             </a>{" "}
-            built using React Server Components.
+            built using React Server Components. It allows the owners to update
+            every single aspect of their website without having to write a
+            single line of code, and it's blazing fast!
           </p>
           <p className="text-left p-2">
             I'm also constantly working on open source projects-- both on my own
@@ -47,7 +49,9 @@ const Experience = () => {
             >
               Astro Docs Template
             </a>
-            . I've also contributed to the{" "}
+            . The template uses the Content Collections API to automatically
+            generate tables of contents and navigation menus for your
+            documentation. I've also contributed to the{" "}
             <a
               href="https://docs.astro.build/"
               className="text-secondary hover:text-quaternary transition-all duration-500 ease-in-out"
@@ -86,7 +90,9 @@ const Experience = () => {
             Portland, Oregon. During this time, I quit drinking and decided to
             pursue a career in web development. Sometimes, I miss the restaurant
             industry, but I'm grateful that this disruption in my life allowed
-            me to discover my true passion.
+            me to discover my true passion. And, I think that my creativity and
+            leadership skills that I honed as a bar manager will serve me well
+            as a developer.
           </p>
         </article>
       </div>
