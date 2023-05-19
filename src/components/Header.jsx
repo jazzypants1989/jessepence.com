@@ -1,5 +1,4 @@
 import React, { useEffect } from "react"
-import ME from "../assets/me.png"
 import HeaderSocials from "./HeaderSocials"
 
 const Header = ({ children }) => {
@@ -36,7 +35,7 @@ const Header = ({ children }) => {
       >
         <img
           className="rounded-full mx-auto relative z-10"
-          src={ME}
+          src="/me.webp"
           alt="Look at this handsome guy!"
         />
       </div>
