@@ -11,13 +11,13 @@
   },
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
-    "astro": "^2.4.1",
-    "swiper": "^9.3.1"
+    "astro": "^3.4.0",
+    "swiper": "^11.0.2"
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.16",
     "@iconify-json/mdi": "^1.1.51",
-    "@unocss/astro": "^0.51.12",
-    "unocss": "^0.51.12"
+    "@unocss/astro": "^0.57.1",
+    "unocss": "^0.57.1"
   }
 }
