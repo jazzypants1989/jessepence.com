@@ -14,7 +14,6 @@ export default defineConfig({
     presetWebFonts({
       provider: "google",
       fonts: {
-        sans: ["Pathway Gothic One", "Signika Negative", "IBM Plex Sans"],
         serif: ["JetBrains Mono"],
       },
     }),
