@@ -77,15 +77,15 @@ import SunSVG from "../components/Sun.astro"
     bg="quinary dark:redDark"
     font="serif"
   >
-    <p hidden animate-fade-in-down>Hello. I see you looking at my code. Pretty neat, huh?</p>
+    <p hidden animate-fade-in-left>Hello. I see you looking at my code. Pretty neat, huh?</p>
     <main flex flex-col items-center justify-center gap-2>
       <Header>
         <CTA />
         <SillyCode />
       </Header>
+      <Portfolio />
       <About />
       <Experience />
-      <Portfolio />
       <Contact />
       <Footer />
       <button id="themeToggle">
@@ -148,7 +148,8 @@ import SunSVG from "../components/Sun.astro"
 
         if (entry.isIntersecting) {
           entry.target.classList.remove("sleeping")
-          entry.target.classList.add("animate-fade-in-down")
+          entry.target.classList.add("animate-fade-in-left")
+          
           matchingNavElement?.classList.add("active")
         } else {
           matchingNavElement?.classList.remove("active")
