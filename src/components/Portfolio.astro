@@ -1,0 +1,116 @@
+---
+const data = [
+  {
+    id: 1,
+    image: "./electriclarrys.png",
+    title: "Electric Larry's",
+    github: "https://github.com/jazzypants1989/electric-larrys",
+    live: "https://electriclarrys.com",
+  },
+  {
+    id: 2,
+    image: "./jesseddit.png",
+    title: "Jesseddit",
+    github: "https://github.com/jazzypants1989/jesseddit",
+    live: "https://jesseddit.com",
+  },
+  {
+    id: 3,
+    image: "./astrodocstemplate.png",
+    title: "Astro Docs Template",
+    github: "https://github.com/jazzypants1989/astro-docs-template",
+    live: "https://astro-docs-template.netlify.app/",
+  },
+  {
+    id: 4,
+    image: "./realshop.png",
+    title: "Real Shop",
+    github: "https://github.com/jazzypants1989/deno-real-store",
+    live: "https://real-store.deno.dev/",
+  },
+  {
+    id: 5,
+    image: "./reactrouter.png",
+    title: "React View Transition Router",
+    github:
+      "https://github.com/jazzypants1989/react-router-navigation-viewtransitions",
+    live: "https://react-router-navigation-viewtransitions.vercel.app/",
+  },
+  {
+    id: 6,
+    image: "./fastify.png",
+    title: "Fastify Postgres REST API Starter",
+    github: "https://github.com/jazzypants1989/fastify-prisma-api",
+    live: "https://github.com/jazzypants1989/fastify-prisma-api",
+  },
+]
+---
+
+<section
+  class="bg-tertiary rounded-2xl w-full md:max-w-3/4 m-auto p-4 observed sleeping bg-opacity-90 text-center"
+  id="portfolio"
+>
+  <div
+    class="flex flex-col justify-center items-center mb-24 md:mb-12 lg:mb-2 w-full"
+  >
+    <h2
+      class="font-bold text-4xl text-center text-white dark:text-black transition-all duration-2000 ease-in-out bg-secondary bg-opacity-50 rounded-lg p-4 w-fit"
+    >
+      Portfolio
+    </h2>
+  </div>
+
+  <!-- Swiper main container -->
+  <div class="swiper">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      {
+        data.map((item) => (
+          <div class="swiper-slide flex flex-col justify-center p-4 h-full">
+            <img
+              src={item.image}
+              alt={item.title}
+              class="rounded-2xl mx-auto aspect-auto w-full"
+              loading="lazy"
+            />
+            <h3 class="text-center text-2xl font-bold p-4">{item.title}</h3>
+            <div class="flex gap-2 justify-center">
+              <a href={item.github} class="btn-secondary mb-4" target="_blank">
+                Github Repo
+              </a>
+              <a href={item.live} class="btn-primary mb-4" target="_blank">
+                Live Demo!
+              </a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <p>Swipe left or right to see more!</p>
+</section>
+
+<script>
+  import Swiper from "swiper"
+  import { Pagination, Navigation, EffectCoverflow } from "swiper"
+  import "swiper/css"
+  import "swiper/css/pagination"
+  import "swiper/css/effect-coverflow"
+
+  new Swiper(".swiper", {
+    modules: [Pagination, Navigation, EffectCoverflow],
+    spaceBetween: 50,
+    pagination: { clickable: true },
+    navigation: true,
+    loop: true,
+    effect: "coverflow",
+  })
+</script>

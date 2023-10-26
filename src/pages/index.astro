@@ -1,13 +1,12 @@
 ---
-import CTA from "../components/CTA"
-import About from "../components/About"
-import StackBlitz from "../components/StackBlitz.astro"
-import Footer from "../components/Footer"
-import Contact from "../components/Contact"
-import Portfolio from "../components/Portfolio"
-import Experience from "../components/Experience"
-import Nav from "../components/Nav"
-import Header from "../components/Header"
+import CTA from "../components/CTA.astro"
+import About from "../components/About.astro"
+import Footer from "../components/Footer.astro"
+import Contact from "../components/Contact.astro"
+import Portfolio from "../components/Portfolio.astro"
+import Experience from "../components/Experience.astro"
+import Nav from "../components/Nav.astro"
+import Header from "../components/Header.astro"
 import SillyCode from "../components/SillyCode.astro"
 import SunSVG from "../components/Sun.astro"
 ---
@@ -78,24 +77,22 @@ import SunSVG from "../components/Sun.astro"
     bg="quinary dark:redDark"
     font="serif"
   >
-    <p hidden animate-fade-in-down>
-      Hello. I see you looking at my code. Pretty neat, huh?
-    </p>
+    <p hidden>Hello. I see you looking at my code. Pretty neat, huh?</p>
     <main flex flex-col items-center justify-center gap-2>
       <Header>
-        <CTA client:load />
+        <CTA />
         <SillyCode />
       </Header>
-      <About client:visible />
+      <About />
       <Experience />
-      <Portfolio client:visible />
-      <Contact client:visible />
+      <Portfolio />
+      <Contact />
       <Footer />
       <button id="themeToggle">
         <SunSVG />
       </button>
     </main>
-    <Nav client:load />
+    <Nav />
   </body>
 </html>
 
@@ -158,7 +155,7 @@ import SunSVG from "../components/Sun.astro"
         }
       })
     },
-    { threshold: 0.2 }
+    { threshold: 0.1 }
   )
 
   const elements = document.querySelectorAll(".observed")

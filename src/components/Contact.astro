@@ -1,0 +1,104 @@
+<section
+  class="observed hero sleeping w-full md:w-3/4 mx-auto p-4"
+  id="contact"
+>
+  <h2
+    text="4xl center white dark:black"
+    transition="all duration-2000 ease-in-out"
+    font="bold"
+    bg="tertiary opacity-50"
+    rounded="lg"
+    p="4"
+  >
+    Contact Me
+  </h2>
+
+  <div
+    class="flex flex-col lg:flex-row text-center items-center justify-center gap-2"
+  >
+    <div class="card m-2">
+      <div class="i-mdi-twitter text-2xl text-center w-full"></div>
+      <h5 class="mb-2">@JessePence5</h5>
+      <a
+        class="btn-secondary"
+        href="https://twitter.com/JessePence5"
+        target="_blank"
+      >
+        Send a Twitter DM!
+      </a>
+    </div>
+    <div class="card">
+      <div class="i-mdi-phone text-2xl text-center w-full"></div>
+      <h5 class="mb-2">1(502)416-4155</h5>
+      <a class="btn-secondary" href="tel:1(502)416-4155"> Give me a call!</a>
+    </div>
+    <div class="card">
+      <div class="i-mdi-email text-2xl text-center w-full"></div>
+      <h5 class="mb-2">jessepence@gmail.com</h5>
+      <a
+        class="btn-secondary"
+        href="mailto:jessepence@gmail.com"
+        target="_blank"
+      >
+        Send an e-mail!
+      </a>
+    </div>
+  </div>
+  <form
+    class="flex flex-col items-center justify-center gap-2 text-black w-full md:w-3/4 mx-auto p-4"
+  >
+    <input
+      type="text"
+      name="name"
+      class="rounded-md shadow-md p-2 min-w-1/3"
+      placeholder="Your Name"
+      required
+    />
+    <input
+      type="email"
+      name="email"
+      class="rounded-md shadow-md p-2 min-w-1/2"
+      placeholder="E-mail Address"
+      required
+    />
+    <input
+      type="text"
+      name="subject"
+      placeholder="Subject"
+      class="rounded-md shadow-md p-2 min-w-3/4"
+      required
+    />
+    <textarea
+      name="message"
+      placeholder="Message"
+      rows="10"
+      class="rounded-md shadow-md p-2 w-full"
+      required></textarea>
+    <button class="btn-tertiary">Send Message</button>
+  </form>
+</section>
+
+<script>
+  import emailjs from "@emailjs/browser"
+
+  const form = document.querySelector("form") as HTMLFormElement
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault()
+
+    const target = e.target as HTMLFormElement
+
+    emailjs
+      .sendForm("wowzers_zowzers", "wowzers-zowzers", form, "CXZrqHT47-logCo_7")
+      .then(
+        (result) => {
+          console.log(result.text)
+        },
+        (error) => {
+          console.log(error.text)
+        }
+      )
+
+    target && target.reset()
+  })
+</script>

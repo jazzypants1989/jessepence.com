@@ -1,0 +1,83 @@
+<nav class="fixed bottom-0 z-40 flex w-full justify-around p-4">
+  <ul
+    class="flex w-fit justify-between gap-2 p-4 dark:text-white text-black dark:bg-redDark bg-quinary bg-opacity-70 dark:bg-opacity-70 rounded-2xl shadow-2xl transition-all duration-2000 ease-in-out"
+  >
+    <li>
+      <a href="#header"
+        ><div
+          class="text-4xl i-mdi-house-outline hover:scale-110 hover:shadow-2xl hover:drop-shadow transition-transform duration-500 ease-in-out smoothScroll"
+        >
+        </div></a
+      >
+    </li>
+    <li>
+      <a href="#about"
+        ><div
+          class="text-4xl i-mdi-account-outline hover:scale-110 hover:shadow-2xl hover:drop-shadow transition-transform duration-500 ease-in-out smoothScroll"
+        >
+        </div></a
+      >
+    </li>
+    <li>
+      <a href="#experience"
+        ><div
+          class="text-4xl i-mdi-briefcase-outline hover:scale-110 hover:shadow-2xl hover:drop-shadow transition-transform duration-500 ease-in-out smoothScroll"
+        >
+        </div></a
+      >
+    </li>
+    <li>
+      <a href="#portfolio"
+        ><div
+          class="text-4xl i-mdi-palette-outline hover:scale-110 hover:shadow-2xl hover:drop-shadow transition-transform duration-500 ease-in-out smoothScroll"
+        >
+        </div></a
+      >
+    </li>
+    <li>
+      <a href="#contact"
+        ><div
+          class="text-4xl i-mdi-email-outline hover:scale-110 hover:shadow-2xl hover:drop-shadow transition-transform duration-500 ease-in-out smoothScroll"
+        >
+        </div></a
+      >
+    </li>
+  </ul>
+</nav>
+
+<script>
+  let activeNav = "#"
+
+  document.querySelectorAll(".smoothScroll").forEach((item) => {
+    item.addEventListener("click", (event) => {
+      const link =
+        item.getAttribute("href") || item.parentElement?.getAttribute("href")
+
+      link && navClick(event, link)
+      activeNav = link || "#"
+    })
+  })
+
+  function navClick(event: Event, link: string) {
+    smoothScroll(event, link)
+    updateActiveNav()
+  }
+
+  function smoothScroll(event: Event, link: string) {
+    event.preventDefault()
+    const target = document.querySelector(link)
+    target && target.scrollIntoView({ behavior: "smooth" })
+  }
+
+  function updateActiveNav() {
+    const navItems = document.querySelectorAll("nav ul li")
+    navItems.forEach((item) => {
+      const href = item?.querySelector("a")?.getAttribute("href")
+      if (href === activeNav) {
+        item.classList.add("active")
+      } else {
+        item.classList.remove("active")
+      }
+    })
+  }
+</script>

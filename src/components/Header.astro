@@ -1,0 +1,32 @@
+---
+import HeaderSocials from "./HeaderSocials.astro"
+---
+
+<header id="header" class="hero sleeping observed w-full md:max-w-3/4">
+  <h5
+    class="transition-all duration-2000 ease-in-out text-2xl text-redDark dark:text-quinary"
+  >
+    Hello, I'm
+  </h5>
+  <h1
+    class="transition-all duration-2000 ease-in-out text-4xl md:text-8xl text-white dark:text-black font-bold bg-tertiary bg-opacity-50 rounded-lg p-4"
+  >
+    Jesse Pence
+  </h1>
+  <h5
+    class="transition-all duration-2000 ease-in-out text-2xl text-redDark dark:text-quinary"
+  >
+    I'm a web developer.
+  </h5>
+  <div
+    class="position-relative z-10 bg-gradient-to-r from-redDark to-primary rounded-full shadow-2xl mx-auto w-1/2 md:w-1/4"
+  >
+    <img
+      class="rounded-full mx-auto relative z-10"
+      src="/me.webp"
+      alt="Look at this handsome guy!"
+    />
+  </div>
+  <HeaderSocials />
+  <slot />
+</header>
