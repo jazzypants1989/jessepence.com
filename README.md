@@ -4,7 +4,7 @@ Not much to say here, but thanks for checking out my Github repository so thorou
 
 ## About the Portfolio
 
-It's just an Astro project built with Astro, vanilla JS, and UnoCSS. I just used this as an excuse to play with Uno, and it's pretty cool. I'll probably still use Tailwind for most projects, though.
+It's just an Astro project built with vanilla JS and UnoCSS. I just used this as an excuse to play with Uno, and it's pretty cool. I'll probably still use Tailwind for most projects, though.
 
 Hilariously, this was originally my first React project ever. It was mostly a 1-1 copy of some Youtube tutorial, and it used create-react-app. Since then, in true Ship of Theseus fashion, almost every part of it has been replaced.
 
