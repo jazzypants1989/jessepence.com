@@ -1,44 +1,44 @@
 ---
 const data = [
   {
-    id: 1,
-    image: "./electriclarrys.webp",
+    media: "./electriclarrys.webp",
     title: "Electric Larry's",
     github: "https://github.com/jazzypants1989/electric-larrys",
     live: "https://electriclarrys.com",
   },
   {
-    id: 2,
-    image: "./jesseddit.webp",
+    media: "https://www.youtube.com/embed/BVKHJcd4Ifs",
+    title: "jessquery",
+    github: "https://github.com/jazzypants1989/jessquery",
+    live: "https://stackblitz.com/edit/jessquery?file=contextSwitch.js"
+  },
+  {
+    media: "./jesseddit.webp",
     title: "Jesseddit",
     github: "https://github.com/jazzypants1989/jesseddit",
     live: "https://jesseddit.com",
   },
   {
-    id: 3,
-    image: "./astrodocstemplate.webp",
+    media: "./astrodocstemplate.webp",
     title: "Astro Docs Template",
     github: "https://github.com/jazzypants1989/astro-docs-template",
     live: "https://astro-docs-template.netlify.app/",
   },
   {
-    id: 4,
-    image: "./realshop.webp",
+    media: "./realshop.webp",
     title: "Real Shop",
     github: "https://github.com/jazzypants1989/deno-real-store",
     live: "https://real-store.deno.dev/",
   },
   {
-    id: 5,
-    image: "./reactrouter.webp",
+    media: "./reactrouter.webp",
     title: "React View Transition Router",
     github:
       "https://github.com/jazzypants1989/react-router-navigation-viewtransitions",
     live: "https://react-router-navigation-viewtransitions.vercel.app/",
   },
   {
-    id: 6,
-    image: "./fastify.webp",
+    media: "./fastify.webp",
     title: "Fastify Postgres REST API Starter",
     github: "https://github.com/jazzypants1989/fastify-prisma-api",
     live: "https://github.com/jazzypants1989/fastify-prisma-api",
@@ -47,11 +47,11 @@ const data = [
 ---
 
 <section
-  class="bg-tertiary rounded-2xl w-full md:max-w-3/4 m-auto p-4 observed sleeping bg-opacity-90 text-center"
+  class="bg-tertiary rounded-2xl w-full md:max-w-3/4 m-auto p-4 sleeping bg-opacity-90 text-center observed"
   id="portfolio"
 >
   <div
-    class="flex flex-col justify-center items-center mb-12 lg:mb-2 w-full"
+    class="flex flex-col items-center w-full"
   >
     <h2
       class="font-bold text-4xl text-center text-white dark:text-black transition-all duration-2000 ease-in-out bg-secondary bg-opacity-50 rounded-lg p-4 w-fit"
@@ -60,44 +60,85 @@ const data = [
     </h2>
   </div>
 
-  <!-- Swiper main container -->
   <div class="swiper">
-    <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       {
         data.map((item) => (
-          <div class="swiper-slide flex flex-col justify-center p-4 h-full">
-            <img
-              src={item.image}
-              alt={item.title}
-              class="rounded-2xl mx-auto aspect-auto w-full"
-              loading="lazy"
-              width="720"
-              height="480"
-            />
-            <h3 class="text-center text-2xl font-bold p-4">{item.title}</h3>
-            <div class="flex gap-2 justify-center">
-              <a href={item.github} class="btn-secondary mb-4" target="_blank">
-                Github Repo
-              </a>
-              <a href={item.live} class="btn-primary mb-4" target="_blank">
-                Live Demo!
-              </a>
+        <div class="swiper-slide flex flex-col justify-center p-4 h-full relative">
+          <div class="flex items-center relative">
+            <div class="absolute left-4 z-50 flex items-center h-full pointer-events-none">
+              <button aria-label="Previous Portfolio Item" class="swiper-button-prev">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-12 md:h-16 w-12 md:w-16 text-primary rounded-full p-2 transition-all duration-500 ease-in-out hover:bg-primary hover:text-tertiary cursor-pointer pointer-events-auto"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
             </div>
+              {item.media?.includes("youtube") ? (
+                <iframe
+                  class="rounded-2xl mx-auto aspect-auto w-full"
+                  loading="lazy"
+                  width="600"
+                  height="300"
+                  src={item.media}
+                  title={item.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                ></iframe>
+              ) : (
+              <img
+                src={item.media}
+                alt={item.title}
+                class="rounded-2xl mx-auto aspect-auto w-full"
+                loading="lazy"
+                width="600"
+                height="300"
+              />
+              )}
+              <div class="absolute right-4 z-50 flex items-center h-full pointer-events-none">
+                <button 
+                aria-label="Next Portfolio Item"
+                class="swiper-button-next">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-12 md:h-16 w-12 md:w-16 text-primary rounded-full p-2 transition-all duration-500 ease-in-out hover:bg-primary hover:text-tertiary cursor-pointer pointer-events-auto"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="flex flex-items-center w-full flex-col gap-2 justify-center">
+                <h3 class="text-center text-2xl font-bold p-4">{item.title}</h3>
+                <a href={item.github} class="btn-secondary mb-4 w-1/2" target="_blank">
+                  Github Repo
+                </a>
+                <a href={item.live} class="btn-primary mb-4 w-1/2" target="_blank">
+                  Live Demo!
+                </a>
+              </div>
           </div>
         ))
       }
     </div>
-
-    <!-- Pagination -->
-    <div class="swiper-pagination"></div>
-
-    <!-- Navigation buttons -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
   </div>
-
-  <p>Swipe left or right to see more!</p>
 </section>
 
 <script>
@@ -112,8 +153,19 @@ const data = [
     modules: [Pagination, Navigation, EffectCoverflow],
     spaceBetween: 50,
     pagination: { clickable: true },
-    navigation: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+      enabled: true,
+    },
     loop: true,
     effect: "coverflow",
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
   })
 </script>

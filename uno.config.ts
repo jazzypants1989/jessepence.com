@@ -31,7 +31,6 @@ export default defineConfig({
     },
   },
   shortcuts: {
-    "observed": "min-h-screen",
     "btn-primary":
       "rounded-lg bg-primary text-white px-4 py-2 shadow-lg hover:shadow-inner hover:drop-shadow hover:bg-opacity-40 hover:text-black transition-all duration-500",
     "btn-secondary":
